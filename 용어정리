@@ -1,0 +1,2 @@
+ETL(Extract, Transform, Load)
+DB에 저장된 데이터를 요구사항에 추출하여 알맞게 다른 저장소에 이동시키는 작업
