@@ -1,2 +1,6 @@
 ETL(Extract, Transform, Load)
 DB에 저장된 데이터를 요구사항에 추출하여 알맞게 다른 저장소에 이동시키는 작업
+
+DDL TRUNCATE
+DELETE * FROM [TABLE명] 과 동일한 작업을 수행하지만 속도가 훨씬 빠르다. TABLE에 DELETE는 AUTO_INCREMENT가 설정되었을 경우 INCREMENT값이 초기화되지
+않지만 TRUNCATE는 초기화한다.
