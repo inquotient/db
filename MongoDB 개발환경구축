@@ -24,3 +24,39 @@
    mongod --dbpath data [폴더경로] --auth 
 
 ※ mongoDB 포트 27017
+
+※ server 끄기
+   db.shutdownServer()
+
+-----------------------------------------------------------------------------------------------------------
+
+mongodb replicate 설정
+
+1. 디렉터리 생성 node1, node2, arbiter
+
+2. replicate 작업을 할 용도로 서버 업로드
+   mongod --dbpath ./node1 --port 27018 --replSet ReplicaSet
+   mongod --dbpath ./node2 --port 27019 --replSet ReplicaSet
+   mongod --dbpath ./node2 --port 27020 --replSet ReplicaSet
+   
+3. 새로운 콘솔로 27018 서버에 접속
+   mongo 127.0.0.1:27018
+   
+4. 27019 서버를 secondary 서버로 추가
+   rs.add("127.0.0.1:27019")
+   
+5. 27020 서버를 arbiter로 추가
+   rs.add("127.0.0.1:27020", {arbiterOnly: true})
+   
+6. 27019서버로 콘솔 접속
+
+7. 27019서버 콘솔에서 slaveOk 속성을 true로 변경
+   db.slaveOk()
+   
+6. 27018서버에 접속한 콘솔에서 db 조작
+
+7. 27019서버에 접속한 콘솔에서 조작된 db상태 확인
+
+8. 27018서버 shutdown
+
+9. 27019서버에 재접속하여 주서버로 변경되었는지 확인
