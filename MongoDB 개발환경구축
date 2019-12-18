@@ -1,0 +1,24 @@
+[윈도우]
+1. mongoDB Enterprise 버전 zip 파일 다운
+
+2. 압축해제 폴더/bin 경로를 환경변수 Path에 추가
+
+3. data폴더로 사용할 폴더 생성
+
+3. mongodb 서버 데몬 실행
+   - mongod --dbpath data폴더 경로
+
+4. mongodb 클라이언트 데몬 실행
+   - mongo
+   
+※ [collection명]의 [column명] value보다 큰 것을 찾아라
+   db.[collection명].find({[column명]:{$gt:[value]}})   
+   관련 공식문서
+   https://docs.mongodb.com/manual/reference/operator/query/lt/#op._S_lt
+   
+※ 사용자 생성
+   use admin
+   db.createUser({user:"[사용자명]", pwd:"[비밀번호]", roles:[{role:"[권한(ex. readWrite]", db:"[db명]"]}
+
+※ 인증모드 서버 설정
+   mongod --dbpath data [폴더경로] --auth 
