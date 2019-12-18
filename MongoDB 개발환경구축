@@ -22,3 +22,5 @@
 
 ※ 인증모드 서버 설정
    mongod --dbpath data [폴더경로] --auth 
+
+※ mongoDB 포트 27017
