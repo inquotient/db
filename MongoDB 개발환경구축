@@ -60,3 +60,11 @@ mongodb replicate 설정
 8. 27018서버 shutdown
 
 9. 27019서버에 재접속하여 주서버로 변경되었는지 확인
+
+10. 27018서버 업로드
+    mongod --dbpath ./node1 --port 27018 --replSet ReplicaSet
+    
+11. 27019서버(primary) 콘솔에서 rs.status()로 정보확인
+
+12. 27019서버 콘솔에서 27018서버 예비서버목록에서 제거
+    rs.remove("localhost:27018") // 127.0.0.1이 안 돼서 localhost로 사용
